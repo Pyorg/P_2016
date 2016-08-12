@@ -1,0 +1,14 @@
+Reunion 12/08/2016
+Asistentes:
+	Agustin Trotta
+	Alejandro Perez
+	Carolina Rozas
+
+En la reunion hemos creado la cuenta de github y tenemos como idea 
+realizar un juego del estilo "Limbo" de XBOX. Este tipo de juego del
+tipo plataformas-puzle es un scroll parallax en 2D. y la historia 
+analizaremos en estos dias como se desarrollara, si la modificaremos 
+o se mantendrá la linea original de la historia del niño sin nombre.
+
+Tambien en la reunion estamos consultando codigos para movimientos 
+de sprites y armamos las carpetas necesarias para nuestro repositorio.
