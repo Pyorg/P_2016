@@ -1,23 +1,7 @@
-# P_2016
-import pygame
+# Seminario_Unla
+Repositorio de la cátedra Seminario de Lenguajes de la UNLa. Año 2016. 
 
-pygame.init()
-pantalla = pygame.display.set_mode((640, 480))
-reloj = pygame.time.Clock()
-hecho = False
-
-font = pygame.font.SysFont("comicsansms", 72)
-text = font.render("Hola Mundo", True, (0, 128, 0))
-
-while not hecho:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            hecho = True
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-            hecho = True
-
-    pantalla.fill((255, 255, 255))
-    pantalla.blit(text,(320 - text.get_width() // 2, 240 - text.get_height() // 2))
-
-    pygame.display.flip()
-    reloj.tick(60)
+Somos alumnos de la carrera Sistemas de la UNLa cursantes de la catedra Seminario de Lenguajes. 
+Integramos el grupo Carolina Rozas, Alejandro Perez, Agustin Trota y Diego Madeo
+En este repositorio iremos trabajando en el juego que debemos presentar en el mes de noviembre 
+para aprobar la cursada de la materia
