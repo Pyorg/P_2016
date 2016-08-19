@@ -1,0 +1,39 @@
+# Prototipo Base
+
+import pygame  # carga la libreria de pygame
+
+class Player(pygame.sprite.Sprite):  # clase de la nave que usa el jugador o protagonista
+    def __init__(self,imagen):   # constructor que posee la imagen de la nave
+        self.imagen=imagen   # le pasamos la imagen
+        self.rect=self.imagen.get_rect()   # se define el rectangulo de la imagen
+        self.rect.top,self.rect.left=(200,300)  # definimos la posicion inicial del rectangulo de la nave
+    def mover(self,vx,vy):   # metodo mover
+       pass   # por ahora no se mueve
+    def update(self,superficie):  # define la superficie (pantalla del juego)
+        superficie.blit(self.imagen,self.rect)  # coloca la imagen que le pasamos, sobrre la superficie
+
+def main():
+
+    pygame.init()  #  inicio pygame en todos sus modulos
+    pantalla=pygame.display.set_mode((600,480)) # fijo dimensiones de la ventana y creo una superficie surface
+    salir=False
+    reloj1= pygame.time.Clock()  # creamos el reloj, que se usa para actualizar las imagenes en el display
+    imagen1=pygame.image.load("nave.png").convert_alpha() # carga la imagen de la nave
+    imagenfondo=pygame.image.load("fondo.png").convert_alpha()  # carga la imagen del fondo
+    player1=Player(imagen1)   # player1 es un objeto de la clase Player, que recibe la imagen1, (nave.png)
+
+
+    while salir!=True:  # loop principal para ejecutar todos los eventos
+        for event in pygame.event.get():  # Lista con todos los eventos
+            if event.type == pygame.QUIT:  #  si el evento es pygame.QUIT ( cruz de la ventana (x))
+                salir=True                         #termina la ejecucion del programa
+
+        reloj1.tick(20)  # actualiza 20 frames por cada  segundo 20 fps
+        pantalla.fill((200,200,200)) # le da color a la pantalla
+        pantalla.blit(imagenfondo,(0,0))  # dibuja la imagen sobre la pantalla
+        player1.update(pantalla)  # actualiza la posicion de la nave
+        pygame.display.update()  # actualiza la pantalla en cada ciclo while
+
+    pygame.quit()
+
+main()
