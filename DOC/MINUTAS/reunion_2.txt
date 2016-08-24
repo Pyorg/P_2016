@@ -1,0 +1,8 @@
+el dia 23/08 nos reunimos nuevamente para definir el juego que vamos a hacer.
+en los dias anteriores a la reunion cada uno investigo diferentes juegos y 
+posibilidades reales de hacerlo en tiempo y forma y en la reunion debatimos
+las diferentes ideas y algun codigo ya empezado a tomar forma por lo que 
+el grupo decidio finalmente cambiar el juego y elegimos como deefinitivo 
+el juego Asteroides como guia. es un juego de tipo arcade donde una nave 
+espacial ira cruzando la galaxia evitando diferentes obstaculos y destruyendolos.
+Ahora solo queda pulir la historia del juego que la subiremos a la brevedad.
