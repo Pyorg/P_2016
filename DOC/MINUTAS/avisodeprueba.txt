@@ -1,0 +1,1 @@
+﻿Se ha ampliado el código del juego, mientras se termina de delinear la historia final del juego, que se orienta a un juego tipo Arcade, que se desarrolla en el espacio de la Cafiero
