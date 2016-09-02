@@ -1,0 +1,36 @@
+import pygame
+import random
+from Proyectiles import Proyectil # importamos de esta forma la clase que esta en la misma carpeta Clases
+
+class Recs(object):
+    def __init__(self,numeroinicial):  # modificado
+        self.lista=[]
+
+        for x in range(numeroinicial):  # modif
+            #creo un rect random
+            leftrandom=random.randrange(2,890)
+            toprandom=random.randrange(-580,-10)
+            width=random.randrange(10,30)
+            height=random.randrange(15,30)
+            self.lista.append(pygame.Rect(leftrandom,toprandom,width,height))
+
+    def reagrear(self):
+        for x in range(len(self.lista)):
+            if self.lista[x].top>555:
+                leftrandom=random.randrange(2,890)
+                toprandom=random.randrange(-580,-10)
+                width=random.randrange(10,30)
+                height=random.randrange(15,30)
+                self.lista[x]=(pygame.Rect(leftrandom,toprandom,width,height))
+
+    def agregarotro(self):
+        pass
+
+    def mover(self):
+        for rectangulo in self.lista:
+            rectangulo.move_ip(0,2)
+
+    def pintar(self,superficie):
+        for rectangulo in self.lista:
+            pygame.draw.rect(superficie,(100,200,10),rectangulo)
+
