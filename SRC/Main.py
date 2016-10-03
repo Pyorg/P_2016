@@ -1,15 +1,21 @@
 import pygame
 import random
-from Bonus import Bonus
 from os import path
 
 from pygame.locals import *
 
 from Misil import Misil
-from puntuacion import actualizarMaximaPuntuacion,\
-    traerMaximaPuntuacion
+from Puntuacion import actualizarMaximaPuntuacion,\
+    traerMaximaPuntuacion,\
+    traerMaximoJugador
 from Explosion import Explosion
 from Meteoritos import Meteoritos
+from Ranking import traerNombre
+from Fondo import fondo
+from Bonus import Bonus
+from Vidas import Vidas
+from Menu import menu
+from Pausa import pausa
 
 img_dir = path.join(path.dirname(__file__), 'imagenes')
 
@@ -49,6 +55,8 @@ def mostrarTexto(surf, text, size, x, y):
 def pantallaPrincipal():
     imagenMenu = pygame.image.load("imagenes/menu.png").convert_alpha()
     pantalla.blit(imagenMenu,(0,0))
+    pygame.mixer.music.load('sonidos/menu.mp3')
+    pygame.mixer.music.play()
     mostrarTexto(pantalla, "Battle Space", 64, 900 / 2, 600 / 4)
     mostrarTexto(pantalla, "Flechas para moverse, S para disparar", 22, 900 / 2, 600 / 2)
     mostrarTexto(pantalla, "Presione cualquier tecla para comenzar ! Escape para salir", 18, 900 / 2, 600 * 3 / 4)
@@ -66,17 +74,10 @@ def pantallaPrincipal():
                     
 def pantallaFinal():
     mostrarTexto(pantalla, "GAME OVER", 64, 900 / 2, 600 / 4)
-    mostrarTexto(pantalla, "APRENDE A JUGAR", 28, 900 / 2, 600 / 2)
-    #mostrarTexto(pantalla, "", 50, 900 / 2, 600 * 3 / 4)
-    pygame.display.flip()
-    waiting = True
-    while waiting:
-        clock.tick(FPS)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                if event.type == pygame.KEYUP:
-                    waiting = False
+    mostrarTexto(pantalla, "JUGAR DE NUEVO (ENTER)", 28, 900 / 2, 600 / 2)
+    mostrarTexto(pantalla, "SALIR (ESCAPE)", 50, 900 / 2, 600 * 3 / 4)
+    if fondo(pantalla):
+        return True
                     
 def mostrarVidas(surf, x, y, lives, img):
     for i in range(lives):
@@ -89,13 +90,11 @@ def nuevosMeteoritos():
     m = Meteoritos()
     conjuntoSprites.add(m)
     meteoritos.add(m)
-    
-    
+       
 """ CLASE PLAYER """
 
 class Player(pygame.sprite.Sprite):
     def __init__(self,imagen):
-        self.image = pygame.transform.scale(pygame.image.load("imagenes/nave.png"), (62, 73))
         self.imagen = imagen
         self.shield = 0
         self.shoot_delay = 250
@@ -111,25 +110,23 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.imagen.get_rect()
         self.rect.top,self.rect.left = (500,200)
         
-    def mover(self,vx,vy):
+    def mover(self, vx, vy):
         self.rect.move_ip(vx,vy)
-        if self.rect.left < 5:
-            self.rect.left = 5
-        if self.rect.left >= 870:
-            self.rect.left = 870
-        if self.rect.top <= 10:
-            self.rect.top = 10
-        if self.rect.top >= 570:
-            self.rect.top = 570
+        if self.rect.left < 8: # LIMITE IZQUIERDO
+            self.rect.left = 8
+        if self.rect.left >= 835: # LIMITE DERECHO
+            self.rect.left = 835
+        if self.rect.top <= 7: # LIMITE SUPERIOR
+            self.rect.top = 7
+        if self.rect.top >= 530: # LIMITE INFERIOR
+            self.rect.top = 530
         self.rect.move_ip(vx,vy)
         
     def update(self):
-    # timeout for powerups
         if self.power >= 2 and pygame.time.get_ticks() - self.power_time > tiempoBonus:
             self.power -= 1
             self.power_time = pygame.time.get_ticks()
 
-        # unhide if hidden
         if self.hidden and pygame.time.get_ticks() - self.hide_timer > 1000:
             self.hidden = False
             self.rect.centerx = ancho / 2
@@ -137,7 +134,6 @@ class Player(pygame.sprite.Sprite):
         
     def powerup(self):
         self.power += 1
-        self.power_time = pygame.time.get_ticks()
         
     def disparar(self):
         now = pygame.time.get_ticks()
@@ -155,6 +151,7 @@ class Player(pygame.sprite.Sprite):
                 conjuntoSprites.add(misil2)
                 misiles.add(misil1)
                 misiles.add(misil2)
+                self.power = 1
                 #shoot_sound.play()
 
     def dibujar(self, superficie):
@@ -170,39 +167,44 @@ class Player(pygame.sprite.Sprite):
         self.rect.center = (ancho - 20, alto + 200)
         
 """ FIN CLASE PLAYER """
-    
-puntaje = 0
-fuentePuntaje = pygame.font.SysFont("Arial", 20)
-record = traerMaximaPuntuacion()
-puntuacion = fuentePuntaje.render("RECORD: " + str(record), 1, (255, 255, 255))
-posx = 100
-vx,vy = 0,0
-velocidad = 5 # CONTROLA VELOCIDAD DE LA NAVE
-leftsigueapretada, rightsigueapretada, upsigueapretada, downsigueapretada = False, False, False, False
-colisiono = False
 
 """ RECURSOS """
 
-imagenexplosion = pygame.image.load("imagenes/explosion.png").convert_alpha()
 imagenfondo = pygame.image.load("imagenes/fondo.png").convert_alpha()
+nave = pygame.image.load("imagenes/nave.png").convert_alpha()
 sonido1 = pygame.mixer.Sound("imagenes/Plane_Fly.mp3")
-imagen1 = pygame.image.load("imagenes/nave.png").convert_alpha()
-pygame.mixer.music.load("sonidos/fondo.wav")
-
-pygame.mixer.music.play()
 
 puntaje = 0
     
 game_over = True
 running = True
+inicio = True
 
 """ LOOP DEL JUEGO """
 while running:
+    
+        if inicio:
+            #pantallaPrincipal()
+            if menu(pantalla) == False:
+                inicio = False
+            pygame.mixer.music.stop()
+            inicio = False
 
         if game_over:
-            pantallaPrincipal()
+            puntaje = 0
+            fuentePuntaje = pygame.font.SysFont("Arial", 20)
+            record = traerMaximaPuntuacion()
+            nombre = traerMaximoJugador()
+            puntuacion = fuentePuntaje.render("RECORD: " + nombre + " >>>> " + str(record), 1, (255, 255, 255))
+            posx = 100
+            vx, vy = 0,0
+            velocidad = 5 # CONTROLA VELOCIDAD DE LA NAVE
+            leftsigueapretada, rightsigueapretada, upsigueapretada, downsigueapretada = False, False, False, False
+            colisiono = False
+            pygame.mixer.music.load('sonidos/fondo.wav')
+            pygame.mixer.music.play(-1)
             conjuntoSprites = pygame.sprite.Group()
-            player1 = Player(imagen1)
+            player1 = Player(nave)
             misiles = pygame.sprite.Group()
             bonus = pygame.sprite.Group()
             meteoritos = pygame.sprite.Group()
@@ -218,6 +220,8 @@ while running:
             elif event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                     running = False
+                if event.key == K_p:
+                    pausa(pantalla)
                     
                     
             if colisiono == False:
@@ -280,9 +284,14 @@ while running:
             expl = Explosion(hit.rect.center, 'lg')
             conjuntoSprites.add(expl)
             if random.random() > 0.9:
-                bn = Bonus(hit.rect.center)
-                conjuntoSprites.add(bn)
-                bonus.add(bn)
+                if random.random() > 0.5:
+                    bn = Bonus(hit.rect.center)
+                    conjuntoSprites.add(bn)
+                    bonus.add(bn)
+                else:
+                    bn = Vidas(hit.rect.center, 'azul')
+                    conjuntoSprites.add(bn)
+                    bonus.add(bn)
             nuevosMeteoritos()
         
         """ CONTROLA COLISION JUGADOR - METEORITO """
@@ -298,27 +307,34 @@ while running:
                 player1.hide()
                 player1.lives -= 1
             if player1.lives == 0:
-                pantallaFinal()
+                if puntaje > int(record):
+                    traerNombre(pantalla, "", puntaje)
+                pantalla.fill((0,0,0))
+                running = False
+                if pantallaFinal():
+                    running = True
+                    game_over = True
                 
         """ CONTROLA COLISION JUGADOR - BONUS """        
         hits = pygame.sprite.spritecollide(player1, bonus, True)
         for hit in hits:
-            if hit.type == 'x2':
-                player1.powerup()
+            if hit.type == 'vidas':
                 player1.lives += 1
-
+            if hit.type == "x2":
+                player1.powerup()
+                
         if colisiono == False:
             player1.mover(vx, vy)
-
+        
         pantalla.blit(imagenfondo,(0,0))
         player1.actualizar(pantalla)
 
         if puntaje > record:
             actualizarMaximaPuntuacion(puntaje) 
         conjuntoSprites.draw(pantalla)
-        mostrarVidas(pantalla, 20, 50, player1.lives, pygame.image.load("Imagenes/nave.png").convert_alpha())
+        mostrarVidas(pantalla, 20, 50, player1.lives, pygame.image.load("Imagenes/vidas.png").convert_alpha())
         mostrarTexto(pantalla, "PUNTAJE: " + str(puntaje), 20, 70, 20)
-        pantalla.blit(puntuacion, (750, 20))
+        pantalla.blit(puntuacion, (650, 20))
         pygame.display.flip()
         
 pygame.quit()

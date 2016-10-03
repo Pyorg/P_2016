@@ -11,7 +11,8 @@ alto = 600
 negro = (0, 0, 0)
 
 powerup_images = {}
-powerup_images['shield'] = pygame.image.load(path.join(img_dir, 'nave.png'))
+powerup_images['shield'] = random.choice([pygame.image.load(path.join(img_dir, 'escudo.png')), 
+                                          pygame.image.load(path.join(img_dir, 'escudo.png'))])
 powerup_images['x2'] = pygame.image.load(path.join(img_dir, 'x2.png'))
 
 class Bonus(pygame.sprite.Sprite):
@@ -26,6 +27,14 @@ class Bonus(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.y += self.speedy
-        # kill if it moves off the top of the screen
         if self.rect.top > alto:
             self.kill()
+            
+vidas_anim = {}
+vidas_anim['azul'] = []
+for i in range(6):
+    filename = 'vidas0{}.png'.format(i)
+    img = pygame.image.load(path.join(img_dir, filename)).convert()
+    img.set_colorkey(negro)
+    img_azul = pygame.transform.scale(img, (75, 75))
+    vidas_anim['azul'].append(img_azul)

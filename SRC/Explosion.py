@@ -1,7 +1,9 @@
 import pygame
 from os import path
 
-BLACK = (0, 0, 0)
+""" COLORES """
+
+negro = (0, 0, 0)
 
 img_dir = path.join(path.dirname(__file__), 'imagenes')
 
@@ -40,12 +42,12 @@ explosion_anim['player'] = []
 for i in range(9):
     filename = 'regularExplosion0{}.png'.format(i)
     img = pygame.image.load(path.join(img_dir, filename)).convert()
-    img.set_colorkey(BLACK)
+    img.set_colorkey(negro)
     img_lg = pygame.transform.scale(img, (75, 75))
     explosion_anim['lg'].append(img_lg)
     img_sm = pygame.transform.scale(img, (32, 32))
     explosion_anim['sm'].append(img_sm)
     filename = 'sonicExplosion0{}.png'.format(i)
     img = pygame.image.load(path.join(img_dir, filename)).convert()
-    img.set_colorkey(BLACK)
+    img.set_colorkey(negro)
     explosion_anim['player'].append(img)
