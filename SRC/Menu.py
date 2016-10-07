@@ -3,6 +3,7 @@
 import pygame
 from pygame.locals import *
 from Creditos import mostrarCreditos
+from Instrucciones import mostrarInstrucciones
 
 """ COLORES """
 
@@ -58,7 +59,7 @@ class Menu:
         total = self.total
         indice = 0
         altura_de_opcion = 80
-        x = 390
+        x = 320
         y = 200
         
         for (titulo, funcion) in self.opciones:
@@ -75,8 +76,8 @@ class Menu:
 def comenzarJuego():
     return True;
 
-def mostrarInstrucciones():
-    print " Funcion  que muestra otro menu de opciones."
+def instrucciones():
+    mostrarInstrucciones()
 
 def creditos():
     mostrarCreditos()
@@ -90,7 +91,7 @@ def menu(pantalla):
     salir = False
     opciones = [
         ("Jugar", comenzarJuego),
-        ("Instrucciones", mostrarInstrucciones),
+        ("Instrucciones", instrucciones),
         ("Creditos", creditos),
         ("Salir", salir)
         ]

@@ -15,7 +15,7 @@ for i in range(7):
     filename = '0{}.gif'.format(i)
     img = pygame.image.load(path.join(img_dir, filename)).convert_alpha()
     img.set_colorkey(negro)
-    img_azul = pygame.transform.scale(img, (90, 90))
+    img_azul = pygame.transform.scale(img, (80, 80))
     escudo_anim['escudo'].append(img_azul)
 
 class Escudos(pygame.sprite.Sprite):

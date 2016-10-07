@@ -49,7 +49,7 @@ def mostrarCreditos():
                 return
 
         #pantalla.fill((255, 255, 255))
-        imagenMenu = pygame.image.load("imagenes/menu.png").convert_alpha()
+        imagenMenu = pygame.image.load("imagenes/creditos.png").convert_alpha()
         pantalla.blit(imagenMenu,(0,0))
 
         for r, s in texts:
@@ -62,6 +62,7 @@ def mostrarCreditos():
         if not screen_r.collidelistall([r for (r, _) in texts]):
             return
         
+        mostrarTexto(pantalla, "Battle Space", 20, 90, 20)
         mostrarTexto(pantalla, "M PARA REGRESAR", 20, 120, 550)
 
         # only call this once so the screen does not flicker

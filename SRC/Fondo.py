@@ -48,6 +48,7 @@ def fondo(pantalla):
         mostrarTexto(pantalla, "GAME OVER", 60, 900 / 2, 600 / 4)
         mostrarTexto(pantalla, "JUGAR DE NUEVO >>> ESPACIO", 40,  900 / 2, 600 / 2)
         mostrarTexto(pantalla, "SALIR >>> M", 40, 900 / 2, 600 * 3 / 4)
+        mostrarTexto(pantalla, "Battle Space", 20, 90, 20)
         pygame.display.flip()
         pygame.display.update()
         reloj.tick(10)
