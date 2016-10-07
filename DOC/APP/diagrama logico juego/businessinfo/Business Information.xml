@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="289440A9-3400-7124-3C97-904FCC61C6AB">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 03:49:19 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

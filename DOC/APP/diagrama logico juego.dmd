@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="diagrama logico juego" id="D0D8526B-3342-8684-78C0-25F32D9E7889" version="3.5">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 03:49:18 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>D0D8526B-3342-8684-78C0-25F32D9E7889</designId>
+</OSDM_Design>
