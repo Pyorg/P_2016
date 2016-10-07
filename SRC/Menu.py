@@ -42,7 +42,6 @@ class Menu:
             elif k[K_RETURN]:
                 
                 titulo, funcion = self.opciones[self.seleccionado]
-                #print "Selecciona la opcion '%s'." %(titulo)
                 return funcion() # INVOCA A LA FUNCION ASOCIADA A LA OPCION
 
         # VERIFICA QUE EL CURSOS SE ENCUENTRE ENTRE LAS OPCIONES PERMITIDAS
@@ -84,7 +83,6 @@ def creditos():
 
 def salir():
     import sys
-    print " Gracias por utilizar este programa."
     sys.exit(0)
     
 def menu(pantalla):
@@ -107,7 +105,6 @@ def menu(pantalla):
                 salir = True
 
         pantalla.blit(fondo, (0, 0))
-        #mostrarTexto(pantalla, "Battle Space", 64, 900 / 2, (600 / 6) - 35)
         if menu.actualizar() == True:
             return False
         menu.imprimir(pantalla)

@@ -36,7 +36,7 @@ def mostrarCaja(pantalla, mensaje): # Print a message in a box in the middle of 
                 ((pantalla.get_width() / 2) - 100, (pantalla.get_height() / 2) - 10))
     pygame.display.flip()
 
-def traerNombre(pantalla, pregunta, puntaje): # ask(screen, question) -> answer
+def traerNombre(pantalla, pregunta, puntaje):
     pygame.font.init()
     current_string = []
     mostrarCaja(pantalla, pregunta + " " + string.join(current_string,"") + " - - - - - - - - - - -")
@@ -56,6 +56,5 @@ def traerNombre(pantalla, pregunta, puntaje): # ask(screen, question) -> answer
 
 def main():
     pantalla = pygame.display.set_mode((900,600))
-    print traerNombre(pantalla, "", 5) + " was entered"
 
 if __name__ == '__main__': main()

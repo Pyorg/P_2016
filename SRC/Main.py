@@ -33,6 +33,14 @@ ancho = 900
 alto = 600
 tiempoBonus = 240
 FPS = 60
+puntaje = 0
+nivelEscudo = 0
+rangoMeteoritos = 8
+
+game_over = True
+running = True
+inicio = True
+
 pantalla = pygame.display.set_mode((ancho, alto))
 pygame.display.set_caption("Battle Space")
 clock = pygame.time.Clock()
@@ -52,26 +60,6 @@ def mostrarTexto(surf, text, size, x, y):
     text_rect = text_surface.get_rect()
     text_rect.midtop = (x, y)
     surf.blit(text_surface, text_rect)
-    
-def pantallaPrincipal():
-    imagenMenu = pygame.image.load("imagenes/menu.png").convert_alpha()
-    pantalla.blit(imagenMenu,(0,0))
-    pygame.mixer.music.load('sonidos/menu.mp3')
-    pygame.mixer.music.play()
-    #mostrarTexto(pantalla, "Battle Space", 64, 900 / 2, 600 / 4)
-    mostrarTexto(pantalla, "Flechas para moverse, S para disparar", 22, 900 / 2, 600 / 2)
-    mostrarTexto(pantalla, "Presione cualquier tecla para comenzar ! Escape para salir", 18, 900 / 2, 600 * 3 / 4)
-    pygame.display.flip()
-    waiting = True
-    while waiting:
-        clock.tick(FPS)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-            if event.type == pygame.KEYUP:
-                waiting = False
-                if event.key == K_ESCAPE:
-                    pygame.quit()
                     
 def pantallaFinal():
     sonidoGameOver = pygame.mixer.Sound("sonidos/gameOver.wav")
@@ -185,14 +173,6 @@ imagenfondo = pygame.image.load("imagenes/fondo.png").convert_alpha()
 nave = pygame.image.load("imagenes/nave.png").convert_alpha()
 sonido1 = pygame.mixer.Sound("imagenes/Plane_Fly.mp3")
 
-puntaje = 0
-nivelEscudo = 0
-rangoMeteoritos = 8
-    
-game_over = True
-running = True
-inicio = True
-
 def getready(pantalla):
     ready = pygame.mixer.Sound(path.join('sonidos','getready.ogg'))
     ready.play()
@@ -205,7 +185,6 @@ def getready(pantalla):
 while running:
     
         if inicio:
-            #pantallaPrincipal()
             pygame.mixer.music.load('sonidos/menu.mp3')
             pygame.mixer.music.play(-1)
             if menu(pantalla) == False:

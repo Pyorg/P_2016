@@ -21,6 +21,5 @@ class Misil(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.y += self.speedy
-        # kill if it moves off the top of the screen
         if self.rect.bottom < 0:
             self.kill()

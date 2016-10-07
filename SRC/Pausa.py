@@ -15,7 +15,6 @@ amarillo = (255, 255, 0)
 def pausa(pantalla):
     running = True
     while running:
-        #pantalla.fill(negro)
         pygame.display.update()
         for event in pygame.event.get():
             if event.key == pygame.K_r:
