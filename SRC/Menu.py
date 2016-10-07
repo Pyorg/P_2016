@@ -2,6 +2,7 @@
 
 import pygame
 from pygame.locals import *
+from Creditos import mostrarCreditos
 
 """ COLORES """
 
@@ -40,7 +41,7 @@ class Menu:
             elif k[K_RETURN]:
                 
                 titulo, funcion = self.opciones[self.seleccionado]
-                print "Selecciona la opcion '%s'." %(titulo)
+                #print "Selecciona la opcion '%s'." %(titulo)
                 return funcion() # INVOCA A LA FUNCION ASOCIADA A LA OPCION
 
         # VERIFICA QUE EL CURSOS SE ENCUENTRE ENTRE LAS OPCIONES PERMITIDAS
@@ -71,17 +72,16 @@ class Menu:
             indice += 1
             screen.blit(imagen, posicion)
 
-def comenzar_nuevo_juego():
-    print " Funcion que muestra un nuevo juego."
+def comenzarJuego():
     return True;
 
-def mostrar_opciones():
+def mostrarInstrucciones():
     print " Funcion  que muestra otro menu de opciones."
 
 def creditos():
-    print " Funcion que muestra los creditos del programa."
+    mostrarCreditos()
 
-def salir_del_programa():
+def salir():
     import sys
     print " Gracias por utilizar este programa."
     sys.exit(0)
@@ -89,10 +89,10 @@ def salir_del_programa():
 def menu(pantalla):
     salir = False
     opciones = [
-        ("Jugar", comenzar_nuevo_juego),
-        ("Opciones", mostrar_opciones),
+        ("Jugar", comenzarJuego),
+        ("Instrucciones", mostrarInstrucciones),
         ("Creditos", creditos),
-        ("Salir", salir_del_programa)
+        ("Salir", salir)
         ]
 
     pygame.font.init()
@@ -106,7 +106,7 @@ def menu(pantalla):
                 salir = True
 
         pantalla.blit(fondo, (0, 0))
-        mostrarTexto(pantalla, "BATTLE SPACE", 64, 900 / 2, (600 / 6) - 35)
+        #mostrarTexto(pantalla, "Battle Space", 64, 900 / 2, (600 / 6) - 35)
         if menu.actualizar() == True:
             return False
         menu.imprimir(pantalla)

@@ -4,6 +4,8 @@ import pygame.sprite as sprite
 
 from pygame.locals import *
 
+pygame.init() 
+
 """ COLORES """
 
 blanco = (255, 255, 255)
@@ -45,18 +47,21 @@ def fondo(pantalla):
             y1 = -h
         mostrarTexto(pantalla, "GAME OVER", 60, 900 / 2, 600 / 4)
         mostrarTexto(pantalla, "JUGAR DE NUEVO >>> ESPACIO", 40,  900 / 2, 600 / 2)
-        mostrarTexto(pantalla, "SALIR >>> ESCAPE", 40, 900 / 2, 600 * 3 / 4)
+        mostrarTexto(pantalla, "SALIR >>> M", 40, 900 / 2, 600 * 3 / 4)
         pygame.display.flip()
         pygame.display.update()
         reloj.tick(10)
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                sys.exit()
                 pygame.quit()
-            if event.key == K_SPACE:
-                return True
-            if event.key == K_ESCAPE:
-                pygame.quit()
+            if event.type == KEYDOWN:
+                if event.key == K_SPACE:
+                    return True
+                if event.key == K_m:
+                    sys.exit()
+                    pygame.quit()
     
     
 def mostrarTexto(surf, text, tamanio, x, y):

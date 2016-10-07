@@ -58,7 +58,7 @@ def pantallaPrincipal():
     pantalla.blit(imagenMenu,(0,0))
     pygame.mixer.music.load('sonidos/menu.mp3')
     pygame.mixer.music.play()
-    mostrarTexto(pantalla, "Battle Space", 64, 900 / 2, 600 / 4)
+    #mostrarTexto(pantalla, "Battle Space", 64, 900 / 2, 600 / 4)
     mostrarTexto(pantalla, "Flechas para moverse, S para disparar", 22, 900 / 2, 600 / 2)
     mostrarTexto(pantalla, "Presione cualquier tecla para comenzar ! Escape para salir", 18, 900 / 2, 600 * 3 / 4)
     pygame.display.flip()
@@ -74,9 +74,8 @@ def pantallaPrincipal():
                     pygame.quit()
                     
 def pantallaFinal():
-    mostrarTexto(pantalla, "GAME OVER", 64, 900 / 2, 600 / 4)
-    mostrarTexto(pantalla, "JUGAR DE NUEVO (ENTER)", 28, 900 / 2, 600 / 2)
-    mostrarTexto(pantalla, "SALIR (ESCAPE)", 50, 900 / 2, 600 * 3 / 4)
+    sonidoGameOver = pygame.mixer.Sound("sonidos/gameOver.wav")
+    sonidoGameOver.play()
     if fondo(pantalla):
         return True
                     
