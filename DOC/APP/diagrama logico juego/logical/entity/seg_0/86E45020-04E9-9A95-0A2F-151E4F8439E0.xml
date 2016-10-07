@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="86E45020-04E9-9A95-0A2F-151E4F8439E0" name="BONUS">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:08:31 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="typeBonus" id="0350CCC0-0450-B364-2CE8-31F6AD3A6A5B">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:08:38 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="imageBonus" id="254A3613-6490-681A-6820-893D76C30974">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:08:47 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="rectBonus" id="1E417DB1-449C-FBF8-C1BD-A10559D7EE20">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:08:54 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="speedyBonus" id="FD030C40-983C-7813-B00B-9705A53D76E9">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:09:00 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

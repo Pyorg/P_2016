@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="04E28563-81DB-6391-8E13-DACD436BC5EE" name="MENU">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:02:02 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="opciones" id="6258D726-7B4D-6F45-4A63-036A0F5E582D">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:02:19 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="font" id="9C9E3161-C24C-6AD1-F4FE-64DE07477F1C">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:02:24 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="seleccionado" id="0BA349AA-8E96-6A07-A7D8-BF8FC655ADBC">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:02:29 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="total" id="6271B48B-8D65-C49C-655A-40BD6FED17FB">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:02:35 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mantiene_pulsado" id="6BFC1268-3584-F4CC-EDF3-F26496496297">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:02:38 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="EF7A8058-2783-803F-F3B0-21904C3EEC04" mainViewID="8EC2BECE-159C-B13C-E9C0-688FE24BC87D">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 03:49:18 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

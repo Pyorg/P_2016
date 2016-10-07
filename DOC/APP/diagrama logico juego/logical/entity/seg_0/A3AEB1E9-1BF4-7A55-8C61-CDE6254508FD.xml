@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A3AEB1E9-1BF4-7A55-8C61-CDE6254508FD" name="PLAYER">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:02:50 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="imagen" id="6756B4D0-8E93-61DE-F042-7A98E9CC6B36">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:03:14 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="shield" id="333C98D9-23B2-2995-9774-53A27706E04A">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:03:20 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="shooty_delay" id="0F5D6CA0-61B7-675B-311B-CAFBA5D4D88D">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:03:36 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="last_shoot" id="CEC5C6D9-B4EA-62E3-1241-795BE1EF7DDF">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:03:44 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="lives" id="A02C070C-CEB9-49B0-C1CA-5B355462CB2D">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:03:52 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="hidden" id="C7866C06-2739-2714-C18A-B0E0EDAF153A">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:03:58 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="hide_timer" id="F2F47FC8-368A-07BC-1CD9-E7891309CE6E">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:04:43 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="power" id="24CA84C2-3F61-1BEE-BE59-597384E800A8">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:04:54 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="power_time" id="1ED62B2D-1534-BB48-F541-44F699EE9714">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:05:02 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

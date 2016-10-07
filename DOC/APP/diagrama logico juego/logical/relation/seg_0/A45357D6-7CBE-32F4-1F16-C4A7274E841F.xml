@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_1" directorySegmentName="seg_0" id="A45357D6-7CBE-32F4-1F16-C4A7274E841F">
+<createdBy>carolina</createdBy>
+<createdTime>2016-10-07 04:16:05 UTC</createdTime>
+<ownerDesignName>diagrama logico juego</ownerDesignName>
+<engineerTo>
+<item key="76905ECD-D905-8D65-9380-5A8D6FBA5E57" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A3AEB1E9-1BF4-7A55-8C61-CDE6254508FD</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>04E28563-81DB-6391-8E13-DACD436BC5EE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
